@@ -1,0 +1,21 @@
+<h3>South Indian Menu</h3>
+<table>
+  <tr>
+    <td>Item Name</td>
+    <td>Item Price</td>
+    <td>Quantity</td>
+    <td>Qty Price</td>
+  </tr>
+  <tr *ngFor="let order of orderItems">
+    <td>{{ order.itemName }} (<span>{{ order.itemSpec }}</span>) </td>    
+    <td>{{ order.itemPrice }} </td>
+    <td><button (click)="addQty(order.itemid)"> + </button> {{ order.orderQuantity }} <button [disabled]="items <= 0" (click)="subQty(order.itemid)" [disabled]="order.orderQuantity=='0'"> - </button></td>
+    <td>{{ order.qtyAmount }}</td>
+  </tr>
+  <tr style="text-align:right">
+      <td>Total Amount</td>
+      <td colspan="3">{{ totalAmount | currency : 'INR':true }}</td>
+  </tr>
+</table>
+
+

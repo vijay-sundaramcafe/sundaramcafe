@@ -1,0 +1,11 @@
+div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3a65e2;
+    color: #fff;
+}
+a{
+    color:#fff;
+    text-decoration:none;
+}

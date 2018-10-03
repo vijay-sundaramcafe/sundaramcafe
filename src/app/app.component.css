@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+}
+section{
+    display:flex;
+    justify-content: space-between;
+    height: 440px;
+}
+div{
+    background-color: #cccccc;
+    width: 70%;
+    height: 100%;
+}

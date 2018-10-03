@@ -1,0 +1,19 @@
+<form name="orderForm" #orderFormRef = "ngForm" class="form-group" (ngSubmit)="createOrder(orderFormRef.value)" ngForm>
+
+  
+  <label>Order Item</label><input type="text" name="oItem" #oTemref="ngModel" class="form-control" ngModel ><br/>
+  <label>Quantity</label><input type="text" name="Qty" #oQty="ngModel"class="form-control" ngModel><br/>
+  <label>Price</label><input type="text" name="prc" #oPrc="ngModel" class="form-control" ngModel><br/>
+  
+  
+  <label>Delivery Type</label>
+  
+  
+  <input type="text" name="deliveryType"  class="form-control" ngModel><br/>
+
+  <!-- [ngModel]="model.deliveryType" -->
+  
+  
+  
+  <button name="submit" type="submit">Create Order</button>
+</form>
