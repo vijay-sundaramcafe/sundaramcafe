@@ -15,8 +15,15 @@ import { OffersComponent } from './offers/offers.component';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { SouthIndianComponent } from './south-indian/south-indian.component';
 import { ApiaccessComponent } from './apiaccess/apiaccess.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 import { ApiService } from './apiaccess/api.service';
+import { PreviewItemsComponent } from './preview-items/preview-items.component';
+import { SampleDBComponent } from './sample-db/sample-db.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { DBConfig } from './sample-db/dbConfig';
+import { DbService } from './sample-db/db-service.service';
 
 @NgModule({
   declarations: [
@@ -31,24 +38,34 @@ import { ApiService } from './apiaccess/api.service';
     OffersComponent,
     MenuItemsComponent,
     SouthIndianComponent,
-    ApiaccessComponent
+    ApiaccessComponent,
+    PreviewItemsComponent,
+    SampleDBComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,    
     HttpClientModule,
+    AngularFireModule.initializeApp(DBConfig.config),
+    AngularFireDatabaseModule,
     RouterModule.forRoot([
       {
       path: "order",
-      component: OrderComponent
+      component: SouthIndianComponent,
+      children: [
+        {
+          path:"preview",
+          component:PreviewItemsComponent
+        }
+      ]
       },
       {
         path:"offer",
         component:OffersComponent
-      }
+      }      
     ])
   ],
-  providers: [ApiService],
+  providers: [ApiService,DbService],
   bootstrap: [AppComponent]
 
 })
