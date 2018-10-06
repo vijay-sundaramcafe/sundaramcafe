@@ -22,7 +22,7 @@ export class SouthIndianComponent implements OnInit {
 
    }
    totalAmount = 0; 
-   qtyAmount = 0;
+   
 
    addQty(itemid){
      console.log(itemid);
@@ -30,18 +30,11 @@ export class SouthIndianComponent implements OnInit {
        if(this.orderItems[i].itemid === itemid){
          this.orderItems[i].orderQuantity +=1;
        }
-     }
-     this.qtyPrice(itemid);
+     }     
      this.totalPrice();
    }
    
-   qtyPrice(itemid){
-    this.qtyAmount=0;
-    console.log(this.qtyAmount);
-    for(var i=0; i<this.orderItems.length;i++){      
-      this.qtyAmount = (this.orderItems[i].itemPrice * this.orderItems[i].orderQuantity);      
-    }
-  }
+   
    totalPrice(){
      this.totalAmount = 0;
       for(var i=0; i<this.orderItems.length;i++){

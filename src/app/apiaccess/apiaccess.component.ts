@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
-import {Observable } from "rxjs"
+import { Observable } from "rxjs"
 
 @Component({
   selector: 'app-apiaccess',
@@ -10,6 +10,7 @@ import {Observable } from "rxjs"
 export class ApiaccessComponent implements OnInit {
 
   users = [];
+  email = [];
 
   constructor(private api : ApiService) { }
 
@@ -17,14 +18,13 @@ export class ApiaccessComponent implements OnInit {
 
     console.log("Inside the user REST API access");
    let userObservable : Observable =  this.api.getUsers();
-        userObservable.subscribe(apiUsers => { // Listner for asynchrnous call
+        userObservable.subscribe(apiUsers => {      // Listner for asynchrnous call
           this.users = apiUsers
           console.log("1. User Data " + this.users);
           }
           );
           
-
+    
     console.log("2. User Data " + this.users);
   }
-
 }

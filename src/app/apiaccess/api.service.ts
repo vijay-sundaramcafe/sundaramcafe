@@ -10,6 +10,6 @@ export class ApiService {
   constructor(private restHttp : HttpClient) { }
 
   getUsers() {
-   return this.restHttp.get("https://jsonplaceholder.typicode.com/users");
+   return this.restHttp.get("https://jsonplaceholder.typicode.com/users");   
   }
 }
